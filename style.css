@@ -178,21 +178,26 @@ body {
   background: black;
 }
 
-/* Quality panel */
+/* Quality panel (compact version) */
 .panel {
   background: rgba(255,255,255,0.05);
-  margin: 20px;
-  padding: 18px;
-  border-radius: 18px;
+  margin: 10px 15px;   /* upar ka gap kam */
+  padding: 10px 12px;  /* andar ka gap kam */
+  border-radius: 16px;
   backdrop-filter: blur(10px);
+}
+
+.panel h3 {
+  margin: 2px 0 6px 0;  /* text ke upar gap kam */
+  font-size: 15px;
 }
 
 .quality-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 0;
 }
-
 .quality-grid button {
   flex: 1;
   min-width: 80px;
