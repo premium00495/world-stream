@@ -1,17 +1,45 @@
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyDmZHJ0l9-WdjIccrGm9rt6jva5cQcvUKM",
+  authDomain: "world-stream-895e6.firebaseapp.com",
+  projectId: "world-stream-895e6",
+  storageBucket: "world-stream-895e6.firebasestorage.app",
+  messagingSenderId: "179269637013",
+  appId: "1:179269637013:web:52a32a4564af7453a41c9c"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 let allChannels = [];
 let currentCategory = "All";
 
-async function loadPremiumChannels() {
-  const res = await fetch("channels.json");
-  allChannels = await res.json();
-  renderChannels(allChannels);
+// Load channels from Firebase
+function loadChannels() {
+  db.collection("channels").onSnapshot(snapshot => {
+    allChannels = [];
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      data.id = doc.id;
+      allChannels.push(data);
+    });
+
+    renderChannels();
+  });
 }
 
-function renderChannels(data) {
-  const container = document.getElementById("channels");
-  container.innerHTML = "";
+// Render channels
+function renderChannels() {
+  const list = document.getElementById("channelList");
+  list.innerHTML = "";
 
-  data.forEach(ch => {
+  let filtered = allChannels;
+
+  if (currentCategory !== "All") {
+    filtered = allChannels.filter(c => c.category === currentCategory);
+  }
+
+  filtered.forEach(ch => {
     const div = document.createElement("div");
     div.className = "channel-card";
 
@@ -28,28 +56,15 @@ function renderChannels(data) {
       window.location = "player.html";
     };
 
-    container.appendChild(div);
+    list.appendChild(div);
   });
 }
 
-function searchChannels() {
-  const text = document.getElementById("search").value.toLowerCase();
-
-  const filtered = allChannels.filter(ch =>
-    ch.name.toLowerCase().includes(text) &&
-    (currentCategory === "All" || ch.category === currentCategory)
-  );
-
-  renderChannels(filtered);
-}
-
+// Category filter
 function filterCategory(cat) {
   currentCategory = cat;
-
-  document.querySelectorAll(".categories button")
-    .forEach(btn => btn.classList.remove("active"));
-
-  event.target.classList.add("active");
-
-  searchChannels();
+  renderChannels();
 }
+
+// Start loading
+loadChannels();
