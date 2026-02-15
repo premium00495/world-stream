@@ -18,7 +18,7 @@ body {
 }
 
 .topbar input {
-  width: 94%;
+  width: 95%;
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -30,8 +30,8 @@ body {
 .categories {
   display: flex;
   overflow-x: auto;
-  padding: 15px;
-  gap: 8px;
+  padding: 10px;
+  gap: 10px;
 }
 
 .categories button {
@@ -44,7 +44,7 @@ body {
 }
 
 .categories button.active {
-  background: limegreen;
+  background: green;
 }
 
 /* Channel list */
