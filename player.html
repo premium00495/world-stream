@@ -7,22 +7,26 @@
 </head>
 <body class="player-body">
 
+<!-- Video with LIVE badge -->
+<div class="video-wrapper">
+  <video id="video" controls autoplay class="video"></video>
+  <div class="live-overlay">LIVE</div>
+</div>
+
+<!-- Channel info -->
 <div class="player-header">
   <img id="channelLogo" class="player-logo">
   <div class="player-info">
     <div id="channelName" class="player-name"></div>
-    <div class="live-badge">LIVE</div>
   </div>
 </div>
 
-<video id="video" controls autoplay class="video"></video>
-
+<!-- Quality panel -->
 <div class="panel">
   <h3>Select Quality</h3>
   <div id="qualityButtons" class="quality-grid"></div>
 </div>
 
-<!-- Firebase (optional future use) -->
 <script src="app.js"></script>
 <script>
 loadPlayer();
