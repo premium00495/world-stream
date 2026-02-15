@@ -1,8 +1,15 @@
+let allChannels = [];
+let currentCategory = "All";
+
 async function loadPremiumChannels() {
   const res = await fetch("channels.json");
-  const data = await res.json();
+  allChannels = await res.json();
+  renderChannels(allChannels);
+}
 
+function renderChannels(data) {
   const container = document.getElementById("channels");
+  container.innerHTML = "";
 
   data.forEach(ch => {
     const div = document.createElement("div");
@@ -23,4 +30,26 @@ async function loadPremiumChannels() {
 
     container.appendChild(div);
   });
+}
+
+function searchChannels() {
+  const text = document.getElementById("search").value.toLowerCase();
+
+  const filtered = allChannels.filter(ch =>
+    ch.name.toLowerCase().includes(text) &&
+    (currentCategory === "All" || ch.category === currentCategory)
+  );
+
+  renderChannels(filtered);
+}
+
+function filterCategory(cat) {
+  currentCategory = cat;
+
+  document.querySelectorAll(".categories button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  event.target.classList.add("active");
+
+  searchChannels();
 }
