@@ -17,28 +17,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Bottom navigation */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #0b0f2a;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.bottom-nav button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 14px;
-}
-body {
-  padding-bottom: 60px; /* space for bottom bar */
-}
-
 .topbar input {
   width: 95%;
   padding: 10px;
