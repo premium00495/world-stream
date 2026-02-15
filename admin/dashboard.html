@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #0b0f2a;
+      color: white;
+      font-family: Arial;
+      padding: 20px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: limegreen;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .box {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Add Channel</h2>
+
+  <input type="text" id="name" placeholder="Channel name">
+  <input type="text" id="thumbnail" placeholder="Thumbnail URL">
+
+  <select id="category">
+    <option>Sports</option>
+    <option>News</option>
+    <option>Drama</option>
+    <option>Cartoon</option>
+    <option>Movies</option>
+  </select>
+
+  <input type="text" id="stream720" placeholder="720p stream link">
+
+  <button onclick="addChannel()">Add Channel</button>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script src="admin.js"></script>
+</body>
+</html>
