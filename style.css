@@ -1,0 +1,45 @@
+body {
+  background: #0f1220;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  padding: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  padding: 15px;
+}
+
+.channel {
+  text-align: center;
+  cursor: pointer;
+}
+
+.channel img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.channel p {
+  margin-top: 5px;
+}
+
+.quality-menu {
+  margin-top: 20px;
+}
+
+.quality-menu button {
+  padding: 10px 15px;
+  margin: 5px;
+  background: green;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
