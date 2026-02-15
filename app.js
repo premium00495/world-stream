@@ -31,6 +31,8 @@ function loadChannels() {
 // Render channels
 function renderChannels() {
   const list = document.getElementById("channelList");
+  if (!list) return;
+
   list.innerHTML = "";
 
   let filtered = allChannels;
@@ -66,5 +68,39 @@ function filterCategory(cat) {
   renderChannels();
 }
 
-// Start loading
+// Player logic
+function loadPlayer() {
+  const ch = JSON.parse(localStorage.getItem("channel"));
+  if (!ch) return;
+
+  document.getElementById("channelName").textContent = ch.name;
+  document.getElementById("channelLogo").src = ch.thumbnail;
+
+  const video = document.getElementById("video");
+  const btns = document.getElementById("qualityButtons");
+
+  const qualities = Object.keys(ch.streams);
+
+  qualities.forEach((q, i) => {
+    const b = document.createElement("button");
+    b.textContent = q;
+
+    if (i === 0) {
+      video.src = ch.streams[q];
+      b.classList.add("active");
+    }
+
+    b.onclick = () => {
+      video.src = ch.streams[q];
+      document
+        .querySelectorAll(".quality-grid button")
+        .forEach(btn => btn.classList.remove("active"));
+      b.classList.add("active");
+    };
+
+    btns.appendChild(b);
+  });
+}
+
+// Start loading channels on home
 loadChannels();
