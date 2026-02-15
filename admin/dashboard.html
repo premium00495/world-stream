@@ -1,53 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Worldstream Admin</title>
+  <title>Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      background: linear-gradient(180deg, #0b0f2a, #1b2145);
+      background: #0b0f2a;
       color: white;
       font-family: Arial, sans-serif;
       margin: 0;
-    }
-
-    /* Header */
-    .header {
-      background: #0b0f2a;
-      padding: 15px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-    }
-
-    .logout {
-      position: absolute;
-      right: 15px;
-      top: 12px;
-      background: red;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      color: white;
-      font-size: 12px;
-      cursor: pointer;
+      padding: 20px;
     }
 
     .container {
       max-width: 500px;
       margin: auto;
-      padding: 15px;
     }
 
     .box {
       background: rgba(255,255,255,0.05);
-      padding: 18px;
+      padding: 20px;
       border-radius: 14px;
-      margin-bottom: 18px;
-      backdrop-filter: blur(10px);
+      margin-bottom: 20px;
     }
 
     h2, h3 {
@@ -56,7 +31,7 @@
     }
 
     .form-group {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     input, select {
@@ -83,10 +58,8 @@
       margin-top: 10px;
     }
 
-    /* Channel list */
     .channel-list {
-      max-height: 300px;
-      overflow-y: auto;
+      margin-top: 10px;
     }
 
     .channel-item {
@@ -114,12 +87,11 @@
 
     .channel-name {
       font-weight: bold;
-      font-size: 14px;
     }
 
     .channel-actions button {
       width: auto;
-      height: 30px;
+      height: 32px;
       padding: 0 10px;
       margin-left: 5px;
       font-size: 12px;
@@ -137,14 +109,9 @@
 </head>
 <body>
 
-<div class="header">
-  Worldstream Admin
-  <button class="logout" onclick="logout()">Logout</button>
-</div>
-
 <div class="container">
 
-  <!-- Add Channel -->
+  <!-- Add Channel Form -->
   <div class="box">
     <h2>Add Channel</h2>
 
@@ -193,7 +160,7 @@
 
   <!-- Channel List -->
   <div class="box">
-    <h2>Channels</h2>
+    <h2>Added Channels</h2>
     <div id="channelList" class="channel-list"></div>
   </div>
 
