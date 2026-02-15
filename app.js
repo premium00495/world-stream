@@ -80,7 +80,7 @@ function loadPlayer() {
   const btns = document.getElementById("qualityButtons");
 
   // Fixed order (best first)
-  const order = ["1080p", "720p", "480p", "360p", "240p"];
+  const order = ["240P", "360P", "480P", "720P", "1080P"];
 
   btns.innerHTML = "";
 
