@@ -1,9 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #0b0f2a, #1b2145);
   color: white;
-  padding-bottom: 60px; /* space for bottom bar */
+  padding-bottom: 70px;
 }
 
 /* Top bar */
@@ -70,7 +74,7 @@ body {
 
 .channel-card img {
   width: 110px;
-  height: 70px;
+  height: 65px;
   object-fit: cover;
   border-radius: 10px;
   margin-right: 12px;
@@ -95,6 +99,7 @@ body {
   display: inline-block;
 }
 
+/* Bottom navigation */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -104,6 +109,7 @@ body {
   overflow-x: auto;
   padding: 6px 0;
   border-top: 1px solid rgba(255,255,255,0.1);
+  z-index: 999;
 }
 
 .bottom-nav button {
@@ -120,4 +126,85 @@ body {
 .bottom-nav .material-icons {
   font-size: 22px;
   margin-bottom: 2px;
+}
+
+/* ================= PLAYER ================= */
+
+.player-body {
+  background: linear-gradient(180deg, #0b0f2a, #1b2145);
+  margin: 0;
+  color: white;
+}
+
+/* Player header */
+.player-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+}
+
+.player-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  padding: 6px;
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.live-badge {
+  background: red;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* Video */
+.video {
+  width: 100%;
+  max-height: 260px;
+  background: black;
+}
+
+/* Quality panel */
+.panel {
+  background: rgba(255,255,255,0.05);
+  margin: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.quality-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quality-grid button {
+  flex: 1;
+  min-width: 80px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.quality-grid button.active {
+  background: limegreen;
 }
