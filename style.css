@@ -40,7 +40,7 @@ body {
 }
 
 .channel-card img {
-  width: 35%;
+  width: 50%;
   max-width: 120px;
   height: auto;
   aspect-ratio: 16/9;
@@ -53,11 +53,11 @@ body {
 }
 
 .channel-info {
-  flex: 1;
+  flex: 4;
 }
 
 .channel-name {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
 }
 
