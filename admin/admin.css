@@ -1,17 +1,18 @@
-/* Body fix */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #0b0f2a, #1b2145);
   color: white;
+  padding-bottom: 100px;
 }
 
-/* Fixed bottom logout */
 .logout-bottom {
   position: fixed;
-  left: 50%;
+  left: 0;
   bottom: 20px;
-  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
   z-index: 9999;
 }
 
@@ -142,3 +143,4 @@ button {
 .delete-btn {
   background: red;
 }
+
