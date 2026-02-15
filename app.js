@@ -82,7 +82,8 @@ const video = document.getElementById("video");
 const btns = document.getElementById("qualityButtons");
 
 const qualities = Object.keys(ch.streams);
-
+const order = ["240p", "360p", "480p", "720p", "1080p"];
+  
 qualities.forEach((q, i) => {
 const b = document.createElement("button");
 b.textContent = q;
