@@ -193,38 +193,36 @@ body {
   font-weight: bold;
 }
 
-/* Quality panel (compact) */
+/* Quality panel */
 .panel {
   background: rgba(255,255,255,0.05);
   margin: 10px 15px;
-  padding: 10px 12px;
+  padding: 12px;
   border-radius: 16px;
-  backdrop-filter: blur(10px);
 }
 
 .panel h3 {
-  margin: 2px 0 6px 0;
-  font-size: 15px;
+  margin: 0 0 10px 0;
+  font-size: 16px;
 }
 
-/* Quality buttons */
+/* Vertical quality buttons */
 .quality-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 0;
+  flex-direction: column; /* line-wise */
+  gap: 10px;
 }
 
 .quality-grid button {
-  flex: 1;
-  min-width: 70px;
-  padding: 10px;
-  border-radius: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
   border: none;
   background: rgba(255,255,255,0.1);
   color: white;
-  cursor: pointer;
+  font-size: 15px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .quality-grid button.active {
