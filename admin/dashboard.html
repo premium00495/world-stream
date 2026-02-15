@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Dashboard</title>
+  <title>Worldstream Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      background: #0b0f2a;
-      color: white;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0b0f2a, #1b2145);
+      color: white;
+    }
+
+    /* Header */
+    .header {
+      background: #0b0f2a;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .logout-btn {
+      background: red;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
     }
 
     .container {
       max-width: 500px;
       margin: auto;
+      padding: 15px;
     }
 
     .box {
       background: rgba(255,255,255,0.05);
-      padding: 20px;
+      padding: 18px;
       border-radius: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h2, h3 {
-      margin-top: 0;
       text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
+      margin-top: 0;
     }
 
     input, select {
       width: 100%;
       height: 42px;
       padding: 0 12px;
+      margin-bottom: 10px;
       border: none;
       border-radius: 8px;
       background: rgba(255,255,255,0.1);
       color: white;
-      font-size: 14px;
       box-sizing: border-box;
     }
 
@@ -55,11 +76,12 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
-      margin-top: 10px;
     }
 
+    /* Channel list */
     .channel-list {
-      margin-top: 10px;
+      max-height: 320px;
+      overflow-y: auto;
     }
 
     .channel-item {
@@ -68,14 +90,14 @@
       border-radius: 10px;
       margin-bottom: 8px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
 
     .channel-left {
       display: flex;
-      align-items: center;
       gap: 10px;
+      align-items: center;
     }
 
     .channel-item img {
@@ -89,13 +111,18 @@
       font-weight: bold;
     }
 
+    .channel-cat {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
     .channel-actions button {
       width: auto;
-      height: 32px;
+      height: 30px;
       padding: 0 10px;
-      margin-left: 5px;
       font-size: 12px;
       border-radius: 6px;
+      margin-left: 5px;
     }
 
     .edit-btn {
@@ -109,64 +136,45 @@
 </head>
 <body>
 
+<div class="header">
+  <div class="logo">Worldstream Admin</div>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
 <div class="container">
 
-  <!-- Add Channel Form -->
   <div class="box">
     <h2>Add Channel</h2>
 
-    <div class="form-group">
-      <input type="text" id="name" placeholder="Channel name">
-    </div>
+    <input type="text" id="name" placeholder="Channel name">
+    <input type="text" id="thumbnail" placeholder="Thumbnail URL">
 
-    <div class="form-group">
-      <input type="text" id="thumbnail" placeholder="Thumbnail URL">
-    </div>
-
-    <div class="form-group">
-      <select id="category">
-        <option>Sports</option>
-        <option>News</option>
-        <option>Drama</option>
-        <option>Cartoon</option>
-        <option>Movies</option>
-      </select>
-    </div>
+    <select id="category">
+      <option>Sports</option>
+      <option>News</option>
+      <option>Drama</option>
+      <option>Cartoon</option>
+      <option>Movies</option>
+    </select>
 
     <h3>Stream Links</h3>
 
-    <div class="form-group">
-      <input type="text" id="stream240" placeholder="240p stream link">
-    </div>
-
-    <div class="form-group">
-      <input type="text" id="stream360" placeholder="360p stream link">
-    </div>
-
-    <div class="form-group">
-      <input type="text" id="stream480" placeholder="480p stream link">
-    </div>
-
-    <div class="form-group">
-      <input type="text" id="stream720" placeholder="720p stream link">
-    </div>
-
-    <div class="form-group">
-      <input type="text" id="stream1080" placeholder="1080p stream link">
-    </div>
+    <input type="text" id="stream240" placeholder="240p stream link">
+    <input type="text" id="stream360" placeholder="360p stream link">
+    <input type="text" id="stream480" placeholder="480p stream link">
+    <input type="text" id="stream720" placeholder="720p stream link">
+    <input type="text" id="stream1080" placeholder="1080p stream link">
 
     <button onclick="addChannel()">Add Channel</button>
   </div>
 
-  <!-- Channel List -->
   <div class="box">
-    <h2>Added Channels</h2>
+    <h2>Channels</h2>
     <div id="channelList" class="channel-list"></div>
   </div>
 
 </div>
 
-<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
