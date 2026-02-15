@@ -2,16 +2,27 @@
 <html>
 <head>
   <title>Player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="player-body">
 
-<h2 id="channelName"></h2>
+<div class="player-header">
+  <img id="channelLogo" class="player-logo">
+  <div class="player-info">
+    <div id="channelName" class="player-name"></div>
+    <div class="live-badge">LIVE</div>
+  </div>
+</div>
 
-<video id="video" controls autoplay width="100%"></video>
+<video id="video" controls autoplay class="video"></video>
 
-<div id="qualities" class="quality-menu"></div>
+<div class="panel">
+  <h3>Select Quality</h3>
+  <div id="qualityButtons" class="quality-grid"></div>
+</div>
 
+<!-- Firebase (optional future use) -->
 <script src="app.js"></script>
 <script>
 loadPlayer();
