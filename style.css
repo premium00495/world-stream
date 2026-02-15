@@ -188,14 +188,14 @@ body {
 }
 
 .panel h3 {
-  margin: 6px 0 12px 0;  /* text ke upar gap kam */
+  margin: 4px 0 10px 0;  /* text ke upar gap kam */
   font-size: 15px;
 }
 
 .quality-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   margin-top: 0;
 }
 .quality-grid button {
