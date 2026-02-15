@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ptv",
+    "name": "PTV Sports",
+    "thumbnail": "https://via.placeholder.com/300x170",
+    "streams": {
+      "240p": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+      "720p": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+    }
+  },
+  {
+    "id": "geo",
+    "name": "Geo News",
+    "thumbnail": "https://via.placeholder.com/300x170",
+    "streams": {
+      "360p": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+      "720p": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+    }
+  }
+]
