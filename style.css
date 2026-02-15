@@ -1,45 +1,70 @@
 body {
-  background: #0f1220;
-  color: white;
-  font-family: Arial, sans-serif;
   margin: 0;
-}
-
-.title {
-  text-align: center;
-  padding: 15px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-.channel {
-  text-align: center;
-  cursor: pointer;
-}
-
-.channel img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.channel p {
-  margin-top: 5px;
-}
-
-.quality-menu {
-  margin-top: 20px;
-}
-
-.quality-menu button {
-  padding: 10px 15px;
-  margin: 5px;
-  background: green;
-  border: none;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #0b0f2a, #1b2145);
   color: white;
+}
+
+/* Header */
+.topbar {
+  text-align: center;
+  padding: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Section title */
+.section-title {
+  padding: 10px 15px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* Channel list */
+.channel-list {
+  padding: 10px;
+}
+
+/* Channel card */
+.channel-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 14px;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.channel-card:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.channel-card img {
+  width: 110px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 12px;
+}
+
+.channel-info {
+  flex: 1;
+}
+
+.channel-name {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.live-tag {
+  background: red;
+  color: white;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin-top: 4px;
+  display: inline-block;
 }
