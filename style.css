@@ -18,7 +18,7 @@ body {
 }
 
 .topbar input {
-  width: 90%;
+  width: 94%;
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -30,7 +30,7 @@ body {
 .categories {
   display: flex;
   overflow-x: auto;
-  padding: 10px;
+  padding: 15px;
   gap: 8px;
 }
 
