@@ -70,6 +70,7 @@ function filterCategory(cat) {
 
 // Player logic
 function loadPlayer() {
+function loadPlayer() {
   const ch = JSON.parse(localStorage.getItem("channel"));
   if (!ch) return;
 
@@ -79,9 +80,14 @@ function loadPlayer() {
   const video = document.getElementById("video");
   const btns = document.getElementById("qualityButtons");
 
-  const qualities = Object.keys(ch.streams);
+  // Fixed quality order
+  const order = ["240p", "360p", "480p", "720p", "1080p"];
 
-  qualities.forEach((q, i) => {
+  btns.innerHTML = "";
+
+  order.forEach((q, i) => {
+    if (!ch.streams[q]) return;
+
     const b = document.createElement("button");
     b.textContent = q;
 
