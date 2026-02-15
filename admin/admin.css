@@ -108,18 +108,25 @@ button {
   background: red;
 }
 
-/* Bottom logout */
+/* Bottom fixed logout button */
 .logout-bottom {
   position: fixed;
-  bottom: 20px;
+  bottom: 15px;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
+  pointer-events: none; /* background ignore */
 }
 
 .logout-bottom button {
-  background: red;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
+  background: limegreen;   /* green color */
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  pointer-events: auto; /* button clickable */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
