@@ -1,9 +1,29 @@
+/* Body fix */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #0b0f2a, #1b2145);
   color: white;
-  padding-bottom: 80px; /* space for logout button */
+}
+
+/* Fixed bottom logout */
+.logout-bottom {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+.logout-bottom button {
+  background: limegreen;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 
 /* Header */
@@ -121,27 +141,4 @@ button {
 
 .delete-btn {
   background: red;
-}
-
-/* Bottom fixed logout button */
-.logout-bottom {
-  position: fixed;
-  bottom: 15px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.logout-bottom button {
-  background: limegreen;
-  border: none;
-  padding: 12px 26px;
-  border-radius: 10px;
-  font-size: 15px;
-  color: white;
-  cursor: pointer;
-  pointer-events: auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
