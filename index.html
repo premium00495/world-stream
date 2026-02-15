@@ -7,11 +7,25 @@
 </head>
 <body>
 
+<!-- Top Bar -->
 <div class="topbar">
-  <h2>WORLDSTREAM</h2>
+  <div class="logo">WORLDSTREAM</div>
+  <input type="text" id="search" placeholder="Search channel..." oninput="searchChannels()">
 </div>
 
-<div class="section-title">Live Channels</div>
+<!-- Categories -->
+<div class="categories">
+  <button onclick="filterCategory('All')" class="active">All</button>
+  <button onclick="filterCategory('Sports')">Sports</button>
+  <button onclick="filterCategory('News')">News</button>
+  <button onclick="filterCategory('Movies')">Movies</button>
+  <button onclick="filterCategory('Drama')">Drama</button>
+
+  
+
+</div>
+
+<!-- Channel List -->
 <div id="channels" class="channel-list"></div>
 
 <script src="app.js"></script>
