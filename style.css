@@ -99,6 +99,12 @@ body {
   display: inline-block;
 }
 
+/* Favorite icon */
+.fav-btn {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
 /* Bottom navigation */
 .bottom-nav {
   position: fixed;
@@ -136,17 +142,42 @@ body {
   color: white;
 }
 
+/* Video wrapper */
+.video-wrapper {
+  position: relative;
+}
+
+/* LIVE badge on video */
+.live-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Video */
+.video {
+  width: 100%;
+  max-height: 260px;
+  background: black;
+}
+
 /* Player header */
 .player-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 15px;
+  padding: 12px 15px;
 }
 
 .player-logo {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   object-fit: contain;
   border-radius: 12px;
   background: rgba(255,255,255,0.1);
@@ -158,51 +189,37 @@ body {
 }
 
 .player-name {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: bold;
 }
 
-.live-badge {
-  background: red;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  display: inline-block;
-  margin-top: 4px;
-}
-
-/* Video */
-.video {
-  width: 100%;
-  max-height: 260px;
-  background: black;
-}
-
-/* Quality panel (compact version) */
+/* Quality panel (compact) */
 .panel {
   background: rgba(255,255,255,0.05);
-  margin: 10px 15px;   /* upar ka gap kam */
-  padding: 10px 12px;  /* andar ka gap kam */
+  margin: 10px 15px;
+  padding: 10px 12px;
   border-radius: 16px;
   backdrop-filter: blur(10px);
 }
 
 .panel h3 {
-  margin: 4px 0 12px 0;  /* text ke upar gap kam */
+  margin: 2px 0 6px 0;
   font-size: 15px;
 }
 
+/* Quality buttons */
 .quality-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 0;
 }
+
 .quality-grid button {
   flex: 1;
-  min-width: 80px;
-  padding: 12px;
-  border-radius: 12px;
+  min-width: 70px;
+  padding: 10px;
+  border-radius: 10px;
   border: none;
   background: rgba(255,255,255,0.1);
   color: white;
