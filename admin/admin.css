@@ -3,6 +3,7 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #0b0f2a, #1b2145);
   color: white;
+  padding-bottom: 80px; /* space for fixed button */
 }
 
 .header {
