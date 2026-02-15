@@ -10,7 +10,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-// Auth
+// Auth login
 function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -20,6 +20,13 @@ function login() {
       window.location = "dashboard.html";
     })
     .catch(err => alert(err.message));
+}
+
+// Logout
+function logout() {
+  firebase.auth().signOut().then(() => {
+    window.location = "login.html";
+  });
 }
 
 // Firestore
@@ -53,8 +60,20 @@ function addChannel() {
   })
   .then(() => {
     alert("Channel added successfully!");
+    clearForm();
   })
   .catch(err => alert(err.message));
+}
+
+// Clear form after add
+function clearForm() {
+  document.getElementById("name").value = "";
+  document.getElementById("thumbnail").value = "";
+  document.getElementById("stream240").value = "";
+  document.getElementById("stream360").value = "";
+  document.getElementById("stream480").value = "";
+  document.getElementById("stream720").value = "";
+  document.getElementById("stream1080").value = "";
 }
 
 // Load channels
@@ -77,7 +96,7 @@ function loadChannels() {
           <img src="${ch.thumbnail}">
           <div>
             <div class="channel-name">${ch.name}</div>
-            <div style="font-size:12px;opacity:0.7;">${ch.category}</div>
+            <div class="channel-cat">${ch.category}</div>
           </div>
         </div>
 
@@ -92,14 +111,14 @@ function loadChannels() {
   });
 }
 
-// Delete channel
+// Delete
 function deleteChannel(id) {
   if (confirm("Delete this channel?")) {
     db.collection("channels").doc(id).delete();
   }
 }
 
-// Edit channel
+// Edit
 function editChannel(id) {
   db.collection("channels").doc(id).get().then(doc => {
     const ch = doc.data();
