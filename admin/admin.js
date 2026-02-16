@@ -160,3 +160,21 @@ function updateAppVersion() {
 
   alert("New app version launched: " + version);
 }
+
+
+function launchNewVersion() {
+  const version = document.getElementById("newVersion").value;
+  const notes = document.getElementById("updateNotes").value;
+
+  if (!version) {
+    alert("Enter version first");
+    return;
+  }
+
+  db.collection("settings").doc("app").set({
+    latestVersion: version,
+    updateNotes: notes
+  });
+
+  alert("New version launched: " + version);
+}
