@@ -1,3 +1,4 @@
+
 {
   "name": "WorldStream",
   "short_name": "WorldStream",
@@ -8,6 +9,7 @@
   "orientation": "portrait",
   "background_color": "#0b0f2a",
   "theme_color": "#0b0f2a",
+  "version": "1.0.0",
   "icons": [
     {
       "src": "icon-192.png",
