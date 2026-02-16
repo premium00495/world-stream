@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Worldstream Admin</title>
+  <title>Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-
-<div class="header">
-  <div class="logo">Worldstream Admin</div>
-</div>
+<body class="player-body">
 
 <div class="container">
 
-  <!-- Add Channel -->
   <div class="box">
     <h2>Add Channel</h2>
 
-    <input type="text" id="name" placeholder="Channel name">
-    <input type="text" id="thumbnail" placeholder="Thumbnail URL">
+    <input id="chName" placeholder="Channel Name">
+    <input id="chThumb" placeholder="Thumbnail URL">
 
-    <select id="category">
+    <select id="chCategory">
       <option>Sports</option>
       <option>News</option>
       <option>Drama</option>
@@ -28,53 +23,45 @@
       <option>Movies</option>
     </select>
 
-    <h3>Stream Links</h3>
-
-    <input type="text" id="stream240" placeholder="240p stream link">
-    <input type="text" id="stream360" placeholder="360p stream link">
-    <input type="text" id="stream480" placeholder="480p stream link">
-    <input type="text" id="stream720" placeholder="720p stream link">
-    <input type="text" id="stream1080" placeholder="1080p stream link">
+    <input id="q240" placeholder="240p stream">
+    <input id="q360" placeholder="360p stream">
+    <input id="q480" placeholder="480p stream">
+    <input id="q720" placeholder="720p stream">
+    <input id="q1080" placeholder="1080p stream">
 
     <button onclick="addChannel()">Add Channel</button>
   </div>
 
-  <!-- Channel list -->
   <div class="box">
     <h2>Channels</h2>
-    <div id="channelList" class="channel-list"></div>
+    <div id="channelList"></div>
+  </div>
+
+  <div class="box">
+    <h3>Launch App Update</h3>
+    <input id="newVersion" placeholder="Version (e.g. 1.1.0)">
+    <textarea id="updateNotes" placeholder="Update notes"></textarea>
+    <button onclick="launchNewVersion()">Launch Update</button>
+  </div>
+
+  <div class="box">
+    <h3>Content Update</h3>
+    <input id="contentVersion" placeholder="Content version (e.g. 1.0.2)">
+    <textarea id="contentNotes" placeholder="Content update notes"></textarea>
+    <button onclick="launchContentUpdate()">Launch Content Update</button>
+  </div>
+
+  <div class="logout-bottom">
+    <button onclick="logout()">Logout</button>
   </div>
 
 </div>
 
-<div class="box">
-  <h3>Launch New App Version</h3>
-
-  <input id="newVersion" placeholder="Version (e.g. 1.1.0)">
-
-  <textarea id="updateNotes"
-    placeholder="What’s new in this update"
-    style="width:100%;height:80px;margin-top:8px;"></textarea>
-
-  <button onclick="launchNewVersion()">
-    Launch Update
-  </button>
-</div>
-  
-<!-- Bottom logout -->
-<div class="logout-bottom">
-  <button onclick="logout()">Logout</button>
-</div>
-
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="../app.js"></script>
 <script src="admin.js"></script>
-<script>
-loadChannels();
-</script>
 
 </body>
 </html>
