@@ -135,8 +135,8 @@
       <div class="settings-value">Check for updates</div>
     </div>
 
-    <button class="update-btn" onclick="location.reload()">
-      Check for Update
+<button class="update-btn" onclick="checkForUpdate()">
+  Check for Update
     </button>
   </div>
 
@@ -170,21 +170,35 @@
   </button>
 </div>
 
-<!-- Scripts -->
 <script>
-/* Show version */
 document.getElementById("appVersion").textContent =
   "Version " + APP_VERSION;
 
-/* Support links */
 function openTelegram() {
-  window.open("https://t.me/CrazyTechOp", "_blank");
+  window.open("https://t.me/yourchannel", "_blank");
 }
 
 function sendEmail() {
   window.location.href = "mailto:support@worldstream.com";
 }
-</script>
 
-</body>
-</html>
+/* Update checker */
+function checkForUpdate() {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistration().then(reg => {
+      if (reg) {
+        reg.update().then(() => {
+          alert("Checking for updates...");
+          setTimeout(() => {
+            location.reload();
+          }, 1500);
+        });
+      } else {
+        alert("No service worker found");
+      }
+    });
+  } else {
+    alert("Update system not supported");
+  }
+}
+</script>
