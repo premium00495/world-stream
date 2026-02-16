@@ -162,19 +162,44 @@ function updateAppVersion() {
 }
 
 
+
 function launchNewVersion() {
-  const version = document.getElementById("newVersion").value;
-  const notes = document.getElementById("updateNotes").value;
+  const version = document.getElementById("newVersion").value.trim();
+  const notes = document.getElementById("updateNotes").value.trim();
 
   if (!version) {
-    alert("Enter version first");
+    alert("Please enter version");
     return;
   }
 
-  db.collection("settings").doc("app").set({
-    latestVersion: version,
-    updateNotes: notes
-  });
+  const docRef = db.collection("settings").doc("app");
 
-  alert("New version launched: " + version);
+  docRef.get().then(doc => {
+    let history = [];
+
+    if (doc.exists && doc.data().history) {
+      history = doc.data().history;
+    }
+
+    history.unshift({
+      version: version,
+      notes: notes,
+      date: new Date().toISOString()
+    });
+
+    return docRef.set({
+      latestVersion: version,
+      updateNotes: notes,
+      history: history
+    });
+  })
+  .then(() => {
+    alert("Update launched successfully!");
+    document.getElementById("newVersion").value = "";
+    document.getElementById("updateNotes").value = "";
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Error launching update");
+  });
 }
