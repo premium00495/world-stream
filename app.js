@@ -37,15 +37,19 @@ function renderChannels() {
 
   let filtered = allChannels;
 
+if (currentCategory !== "All") {
+filtered = allChannels.filter(c => c.category === currentCategory);
+}
+  let filtered = allChannels;
+
+filtered.forEach(ch => {
+const div = document.createElement("div");
+div.className = "channel-card";
   if (currentCategory !== "All") {
     filtered = allChannels.filter(c => c.category === currentCategory);
   }
-
-  filtered.forEach(ch => {
-    const div = document.createElement("div");
-    div.className = "channel-card";
-
-    div.innerHTML = `
+  
+  div.innerHTML = `
       <img src="${ch.thumbnail}">
       <div class="channel-info">
         <div class="channel-name">${ch.name}</div>
