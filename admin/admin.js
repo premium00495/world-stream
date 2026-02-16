@@ -145,3 +145,18 @@ function editChannel(id) {
     deleteChannel(id);
   });
 }
+
+function updateAppVersion() {
+  const version = document.getElementById("newVersion").value;
+
+  if (!version) {
+    alert("Enter version first");
+    return;
+  }
+
+  db.collection("settings").doc("app").set({
+    latestVersion: version
+  });
+
+  alert("New app version launched: " + version);
+}
