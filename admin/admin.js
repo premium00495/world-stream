@@ -146,23 +146,6 @@ function editChannel(id) {
   });
 }
 
-function updateAppVersion() {
-  const version = document.getElementById("newVersion").value;
-
-  if (!version) {
-    alert("Enter version first");
-    return;
-  }
-
-  db.collection("settings").doc("app").set({
-    latestVersion: version
-  });
-
-  alert("New app version launched: " + version);
-}
-
-
-
 function launchNewVersion() {
   const version = document.getElementById("newVersion").value.trim();
   const notes = document.getElementById("updateNotes").value.trim();
