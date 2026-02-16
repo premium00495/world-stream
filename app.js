@@ -63,8 +63,16 @@ function renderChannels() {
 }
 
 // Category filter
-function filterCategory(cat) {
+function filterCategory(cat, el) {
   currentCategory = cat;
+
+  // remove active from all buttons
+  document.querySelectorAll(".categories button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  // add active to clicked button
+  if (el) el.classList.add("active");
+
   renderChannels();
 }
 
