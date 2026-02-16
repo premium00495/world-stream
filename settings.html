@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="version.js"></script>
+
+  <!-- Material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    .settings-container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .settings-card {
+      background: rgba(255,255,255,0.05);
+      padding: 18px;
+      border-radius: 16px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .settings-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .settings-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .settings-item:last-child {
+      border-bottom: none;
+    }
+
+    .settings-label {
+      font-size: 15px;
+    }
+
+    .settings-value {
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    .app-logo {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .app-logo img {
+      width: 80px;
+      border-radius: 18px;
+    }
+
+    .app-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="settings-container">
+
+  <!-- App logo -->
+  <div class="app-logo">
+    <img src="icon-192.png">
+    <div class="app-name">WorldStream</div>
+  </div>
+
+  <!-- Version card -->
+  <div class="settings-card">
+    <div class="settings-title">App Info</div>
+
+    <div class="settings-item">
+      <div class="settings-label">Version</div>
+      <div class="settings-value" id="appVersion"></div>
+    </div>
+
+    <div class="settings-item">
+      <div class="settings-label">Build</div>
+      <div class="settings-value">Stable</div>
+    </div>
+  </div>
+
+  <!-- About card -->
+  <div class="settings-card">
+    <div class="settings-title">About</div>
+
+    <div class="settings-item">
+      <div class="settings-label">Developer</div>
+      <div class="settings-value">WorldStream Team</div>
+    </div>
+
+    <div class="settings-item">
+      <div class="settings-label">App Type</div>
+      <div class="settings-value">Live TV Streaming</div>
+    </div>
+  </div>
+
+  <!-- Update card -->
+  <div class="settings-card">
+    <div class="settings-title">Updates</div>
+
+    <div class="settings-item">
+      <div class="settings-label">Status</div>
+      <div class="settings-value">Up to date</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bottom navigation -->
+<div class="bottom-nav">
+  <button onclick="location.href='index.html'">
+    <span class="material-icons">home</span>
+    <div>Home</div>
+  </button>
+
+  <button onclick="location.href='settings.html'">
+    <span class="material-icons">settings</span>
+    <div>Settings</div>
+  </button>
+</div>
+
+<script>
+document.getElementById("appVersion").textContent =
+  "Version " + APP_VERSION;
+</script>
+
+</body>
+</html>
