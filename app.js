@@ -37,19 +37,15 @@ function renderChannels() {
 
   let filtered = allChannels;
 
-if (currentCategory !== "All") {
-filtered = allChannels.filter(c => c.category === currentCategory);
-}
-  let filtered = allChannels;
-
-filtered.forEach(ch => {
-const div = document.createElement("div");
-div.className = "channel-card";
   if (currentCategory !== "All") {
     filtered = allChannels.filter(c => c.category === currentCategory);
   }
-  
-  div.innerHTML = `
+
+  filtered.forEach(ch => {
+    const div = document.createElement("div");
+    div.className = "channel-card";
+
+    div.innerHTML = `
       <img src="${ch.thumbnail}">
       <div class="channel-info">
         <div class="channel-name">${ch.name}</div>
@@ -67,16 +63,8 @@ div.className = "channel-card";
 }
 
 // Category filter
-function filterCategory(cat, el) {
+function filterCategory(cat) {
   currentCategory = cat;
-
-  // remove active from all buttons
-  document.querySelectorAll(".categories button")
-    .forEach(btn => btn.classList.remove("active"));
-
-  // add active to clicked button
-  if (el) el.classList.add("active");
-
   renderChannels();
 }
 
