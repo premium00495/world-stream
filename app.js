@@ -24,7 +24,7 @@ function loadChannels() {
       allChannels.push(data);
     });
 
-    renderChannels();
+    renderchannels();
   });
 }
 
@@ -35,10 +35,10 @@ function renderChannels() {
 
   list.innerHTML = "";
 
-  let filtered = allChannels;
+  let filtered = allchannels;
 
   if (currentCategory !== "All") {
-    filtered = allChannels.filter(c => c.category === currentCategory);
+    filtered = allchannels.filter(c => c.category === currentCategory);
   }
 
   filtered.forEach(ch => {
@@ -112,4 +112,4 @@ function loadPlayer() {
 }
 
 // Start loading channels on home
-loadChannels();
+loadchannels();
