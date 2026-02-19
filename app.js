@@ -18,13 +18,14 @@ let currentCategory = "All";
 function loadChannels() {
   db.collection("channels").onSnapshot(snapshot => {
     allChannels = [];
+
     snapshot.forEach(doc => {
       const data = doc.data();
       data.id = doc.id;
       allChannels.push(data);
     });
 
-    renderchannels();
+    renderChannels(); // ✅ fixed
   });
 }
 
@@ -35,10 +36,10 @@ function renderChannels() {
 
   list.innerHTML = "";
 
-  let filtered = allchannels;
+  let filtered = allChannels; // ✅ fixed
 
   if (currentCategory !== "All") {
-    filtered = allchannels.filter(c => c.category === currentCategory);
+    filtered = allChannels.filter(c => c.category === currentCategory); // ✅ fixed
   }
 
   filtered.forEach(ch => {
@@ -79,20 +80,17 @@ function loadPlayer() {
   const video = document.getElementById("video");
   const btns = document.getElementById("qualityButtons");
 
-  // Fixed order (best first)
   const order = ["240p", "360p", "480p", "720p", "1080p"];
 
   btns.innerHTML = "";
-
   let firstSet = false;
 
   order.forEach(q => {
-    if (!ch.streams[q]) return;
+    if (!ch.streams || !ch.streams[q]) return;
 
     const b = document.createElement("button");
     b.textContent = q;
 
-    // First available = auto start
     if (!firstSet) {
       video.src = ch.streams[q];
       b.classList.add("active");
@@ -102,7 +100,7 @@ function loadPlayer() {
     b.onclick = () => {
       video.src = ch.streams[q];
       document
-        .querySelectorAll(".quality-grid button")
+        .querySelectorAll("#qualityButtons button")
         .forEach(btn => btn.classList.remove("active"));
       b.classList.add("active");
     };
@@ -112,4 +110,4 @@ function loadPlayer() {
 }
 
 // Start loading channels on home
-loadchannels();
+loadChannels(); // ✅ fixed
