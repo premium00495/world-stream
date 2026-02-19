@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WorldStream</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0f2a">
+  
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- App icon -->
+  <link rel="icon" href="icon-192.png">
+
+  <!-- Material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="version.js"></script>
+</head>
+  <body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="logo">WORLDSTREAM</div>
+  <input type="text" id="search" placeholder="Search channel..." oninput="searchChannels()">
+</div>
+    
+<!-- Categories -->
+<div class="categories">
+  <button onclick="filterCategory('All', this)" class="active">All</button>
+  <button onclick="filterCategory('Sports', this)">Sports</button>
+  <button onclick="filterCategory('News', this)">News</button>
+  <button onclick="filterCategory('Drama', this)">Drama</button>
+  <button onclick="filterCategory('Cartoon', this)">Cartoon</button>
+  <button onclick="filterCategory('Movies', this)">Movies</button>
+</div>
+
+<!-- Channel List -->
+<div id="channelList" class="channel-list"></div>
+
+<div class="bottom-nav">
+  <button onclick="location.href='index.html'">
+    <span class="material-icons">home</span>
+    <div>Home</div>
+  </button>
+
+  <button onclick="filterCategory('Sports')">
+    <span class="material-icons">sports_soccer</span>
+    <div>Sports</div>
+  </button>
+
+  <button onclick="filterCategory('News')">
+    <span class="material-icons">campaign</span>
+    <div>News</div>
+  </button>
+
+  <button onclick="filterCategory('Drama')">
+    <span class="material-icons">theater_comedy</span>
+    <div>Drama</div>
+  </button>
+
+  <button onclick="filterCategory('Cartoon')">
+    <span class="material-icons">emoji_emotions</span>
+    <div>Cartoon</div>
+  </button>
+
+  <button onclick="filterCategory('Movies')">
+    <span class="material-icons">movie</span>
+    <div>Movies</div>
+  </button>
+
+  <button onclick="location.href='settings.html'">
+    <span class="material-icons">settings</span>
+    <div>Settings</div>
+  </button>
+</div>
+
+  <!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  
+<script src="app.js"></script>
+<script>
+loadchannels();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js");
+  });
+}
+      </script>
+  
+</body>
+</html>
